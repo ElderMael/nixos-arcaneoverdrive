@@ -55,7 +55,12 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     emacs
+
     git
+    gitAndTools.git-extras
+
+    obs-studio
+    
     unstable.google-chrome
   ];
 
