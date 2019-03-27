@@ -30,9 +30,15 @@ in
   nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub = {
+    enable = true;
+    version = 2;
+    devices = [ "nodev" ];
+    efiSupport = true;
+    useOSProber = true;
+  };
+  
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "arcaneoverdrive"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -60,6 +66,8 @@ in
     gitAndTools.git-extras
 
     obs-studio
+
+    gparted
     
     unstable.google-chrome
   ];
