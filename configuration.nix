@@ -13,7 +13,7 @@ in
       ./hardware-configuration.nix
     ];
 
-  
+
    nixpkgs.config = {
     packageOverrides = pkgs: {
       unstable = import unstableTarball {
@@ -22,7 +22,7 @@ in
      };
    };
 
-  
+
   nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
@@ -34,7 +34,7 @@ in
     efiSupport = true;
     useOSProber = true;
   };
-  
+
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "arcaneoverdrive"; # Define your hostname.
@@ -59,7 +59,7 @@ in
   environment.systemPackages = with pkgs; [
     zsh
     oh-my-zsh
-    
+
     emacs
 
     git
@@ -71,7 +71,7 @@ in
     obs-studio
 
     gparted
-    
+
     unstable.google-chrome
 
     lastpass-cli
@@ -79,6 +79,8 @@ in
     gnome3.gnome-calculator
 
     terminator
+    powerline-fonts
+    ubuntu_font_family
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
