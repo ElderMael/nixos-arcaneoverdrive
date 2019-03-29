@@ -77,6 +77,8 @@ in
     lastpass-cli
 
     gnome3.gnome-calculator
+
+    terminator
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
