@@ -18,18 +18,19 @@ in
     ];
 
   
-  nixpkgs.config = {
+   nixpkgs.config = {
     packageOverrides = pkgs: {
       unstable = import unstableTarball {
         config = config.nixpkgs.config;
       };
-    };
-  };
+     };
+   };
 
   
   nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
   boot.loader.grub = {
     enable = true;
     version = 2;
@@ -70,6 +71,8 @@ in
     gparted
     
     unstable.google-chrome
+
+    lastpass-cli
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -98,7 +101,6 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "latam";
-  services.xserver.xkbVariant = "";
 
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
@@ -127,3 +129,4 @@ in
   system.stateVersion = "18.09"; # Did you read the comment?
 
 }
+
