@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 let
@@ -61,10 +57,16 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    zsh
+    oh-my-zsh
+    
     emacs
 
     git
     gitAndTools.git-extras
+
+    python
+    httpie
 
     obs-studio
 
@@ -73,6 +75,8 @@ in
     unstable.google-chrome
 
     lastpass-cli
+
+    gnome3.gnome-calculator
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -120,7 +124,16 @@ in
     home = "/home/necromancer";
     description = "Necromancer";
     extraGroups = [ "wheel" "networkmanager" ];
+
+    shell = pkgs.zsh;
   };
+
+  programs.zsh = {
+    enable = true;
+    ohMyZsh.enable = true;
+  };
+
+  
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
