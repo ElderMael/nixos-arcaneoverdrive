@@ -81,6 +81,9 @@ in
     terminator
     powerline-fonts
     ubuntu_font_family
+
+    zip
+    unzip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
